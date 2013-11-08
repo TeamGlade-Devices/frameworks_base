@@ -3491,6 +3491,12 @@ public final class Settings {
         public static final String T9_SEARCH_INPUT_LOCALE = "t9_search_input_locale";
 
         /**
+         * Whether to prevent loud volume levels when headset is first plugged in.
+         * @hide
+         */
+        public static final String SAFE_HEADSET_VOLUME = "safe_headset_volume";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
