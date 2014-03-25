@@ -3402,6 +3402,24 @@ public final class Settings {
         public static final String T9_SEARCH_INPUT_LOCALE = "t9_search_input_locale";
 
         /**
+         * Pie control panel. Meet him on the spot.
+         * 0 = off
+         * 1 = on
+         * Changes aspect depends on status bar visibility.
+         * @hide
+         */
+        public static final String PIE_STATE = "pie_state";
+
+        /**
+         * Location of the pie in the screen
+         * 0 = Gravity.BOTTOM (default)
+         * 1 = Gravity.LEFT
+         * 2 = Gravity.RIGHT
+         * @hide
+         */
+        public static final String PIE_GRAVITY = "pie_gravity";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
