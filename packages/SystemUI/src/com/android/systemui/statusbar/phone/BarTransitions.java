@@ -82,6 +82,12 @@ public class BarTransitions {
         return mMode;
     }
 
+    public void setWarningColor(int color) {
+        if (mBarBackground != null) {
+            mBarBackground.setWarningColor(color);
+        }
+    }
+
     public void transitionTo(int mode, boolean animate) {
         // low-end devices do not support translucent modes, fallback to opaque
         if (!HIGH_END && (mode == MODE_SEMI_TRANSPARENT || mode == MODE_TRANSLUCENT
@@ -187,6 +193,12 @@ public class BarTransitions {
             Rect bounds = mGradient.getBounds();
             mGradient = res.getDrawable(mGradientResourceId);
             mGradient.setBounds(bounds);
+        }
+
+        public void setWarningColor(int color) {
+            if (!DEBUG_COLORS) {
+                mWarning = color;
+            }
         }
 
         @Override
