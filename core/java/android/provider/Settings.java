@@ -3413,6 +3413,12 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
         /**
+         * Timeout for ambient display notification
+         * @hide
+         */
+        public static final String DOZE_TIMEOUT = "doze_timeout";        
+
+        /**
          * Boolean value on whether to show weather in the statusbar
          * @hide
          */
