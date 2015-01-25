@@ -20,7 +20,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <FrameLayout
+    <!-- exposed bg for theming -->
+    <LinearLayout
         android:id="@+id/slider_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
