@@ -2045,11 +2045,21 @@
     <bool name="config_telephony_ESN_Tracker_enabled">false</bool>
 
     <!-- Whether cpu boost is enabled for overscroller fling. -->
-    <bool name="config_enableCpuBoostForOverScrollerFling">false</bool>
+    <bool name="config_enableCpuBoostForOverScrollerFling">true</bool>
 
     <!-- Whether cpu boost is enabled for horizontal scroll. -->
+<<<<<<< HEAD
     <bool name="config_enableCpuBoostForScroller">false</bool>
 
+=======
+    <bool name="config_enableCpuBoostForScroller">true</bool>
+    
+	    <!-- Wether doze feature is enabled by default in settings. -->
+    <bool name="config_doze_enabled_by_default">false</bool>
+    <bool name="doze_pulse_on_significant_motion">false</bool>
+    <bool name="doze_display_state_supported">false</bool>
+    
+>>>>>>> 91ee42a... Frameworks: Add ability to control default value of DOZE_ENABLED
     <!-- Configuration to enable non-default PDP during IWLAN -->
     <bool name="config_feature_iwlan_enabled">false</bool>
     <!-- set to false if we dont need to consider data
