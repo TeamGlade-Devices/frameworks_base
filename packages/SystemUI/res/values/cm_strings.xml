@@ -55,6 +55,9 @@
     <!-- QuickSettings: Apn switch button label [CHAR LIMIT=NONE] -->
     <string name="quick_settings_apn_switch_label">APN switch</string>
 
+    <!-- Quick Settings -->
+    <string name="quick_settings_powermenu_label">Power Menu</string>
+
     <!-- QuickSettings: Dds [CHAR LIMIT=NONE] -->
     <string name="quick_settings_dds_sub">SIM <xliff:g id="number">%d</xliff:g> mobile data</string>
     <string name="quick_settings_data_off">Mobile data Off</string>
