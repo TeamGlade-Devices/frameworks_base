@@ -69,6 +69,7 @@ import android.content.res.AssetManager;
 import android.content.res.ThemeConfig;
 import android.content.res.ThemeManager;
 import android.util.Pair;
+import com.android.internal.policy.impl.PhoneWindowManager;
 import com.android.internal.app.IMediaContainerService;
 import com.android.internal.app.ResolverActivity;
 import com.android.internal.content.NativeLibraryHelper;
@@ -196,6 +197,8 @@ import android.util.Slog;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.view.Display;
+import android.view.WindowManager;
+import android.view.WindowManagerPolicy;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -659,6 +662,9 @@ public class PackageManagerService extends IPackageManager.Stub {
 
     // Stores a list of users whose package restrictions file needs to be updated
     private HashSet<Integer> mDirtyUsers = new HashSet<Integer>();
+
+    WindowManager mWindowManager;
+    private final WindowManagerPolicy mPolicy; // to set packageName
 
     final private DefaultContainerConnection mDefContainerConn =
             new DefaultContainerConnection();
@@ -1439,6 +1445,11 @@ public class PackageManagerService extends IPackageManager.Stub {
             mSeparateProcesses = null;
         }
 
+        mWindowManager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+        Display d = mWindowManager.getDefaultDisplay();
+        mPolicy = new PhoneWindowManager();
+        d.getMetrics(mMetrics);
+ 
         mInstaller = installer;
 
         getDefaultDisplayMetrics(context, mMetrics);
@@ -4835,6 +4846,15 @@ public class PackageManagerService extends IPackageManager.Stub {
                 R.string.android_installing_apk : R.string.android_upgrading_apk;
 
         try {
+                // give the packagename to the PhoneWindowManager
+                ApplicationInfo ai;
+                try {
+                    ai = mContext.getPackageManager().getApplicationInfo(pkg.packageName, 0);
+                } catch (Exception e) {
+                    ai = null;
+                }
+                mPolicy.setPackageName((String) (ai != null ? mContext.getPackageManager().getApplicationLabel(ai) : pkg.packageName));
+
             ActivityManagerNative.getDefault().showBootMessage(
                     mContext.getResources().getString(messageRes,
                             curr, total), true);
