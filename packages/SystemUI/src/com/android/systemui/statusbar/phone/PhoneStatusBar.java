@@ -1043,7 +1043,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         if (isMSim()) {
             if (mMSimNetworkController == null) {
-                mMSimNetworkController = new MSimNetworkControllerImpl(mContext);
+                mMSimNetworkController = new MSimNetworkControllerImpl(mContext, mHandler);
             }
             MSimSignalClusterView signalCluster = (MSimSignalClusterView)
                     mStatusBarView.findViewById(R.id.msim_signal_cluster);
@@ -3720,6 +3720,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private void setControllerUsers() {
         if (mZenModeController != null) {
             mZenModeController.setUserId(mCurrentUserId);
+        }
+        if (mMSimNetworkController != null) {
+            mMSimNetworkController.setUserId(mCurrentUserId);
         }
     }
 
