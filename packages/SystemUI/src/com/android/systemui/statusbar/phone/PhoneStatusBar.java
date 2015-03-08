@@ -1193,6 +1193,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             });
         }
 
+        if (mStatusBarWindowManager != null) {
+            mStatusBarWindowManager.setKeyguardMonitor(mKeyguardMonitor);
+        }
+
         // User info. Trigger first load.
         mHeader.setUserInfoController(mUserInfoController);
         mKeyguardStatusBar.setUserInfoController(mUserInfoController);
@@ -3530,6 +3534,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private void addStatusBarWindow() {
         makeStatusBarView();
         mStatusBarWindow.addContent(mStatusBarWindowContent);
+        mStatusBarWindowManager = new StatusBarWindowManager(mContext);
+        mStatusBarWindowManager.setKeyguardMonitor(mKeyguardMonitor);
         mStatusBarWindowManager = new StatusBarWindowManager(mContext, mKeyguardMonitor);
         mStatusBarWindowManager.add(mStatusBarWindow, getStatusBarHeight());
     }
@@ -3807,6 +3813,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // Halts the old ticker. A new ticker is created in makeStatusBarView() so
         // this MUST happen before makeStatusBarView();
         haltTicker();
+
+        mKeyguardMonitor.removeCallbacks();
 
         makeStatusBarView();
         repositionNavigationBar();
