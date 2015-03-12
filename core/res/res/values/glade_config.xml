@@ -1,0 +1,8 @@
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate. -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Doze: force using accelerometer as pick up sensor -->
+    <bool name="config_dozeUseAccelerometer">false</bool>
+
+</resources>
