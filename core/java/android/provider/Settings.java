@@ -3424,23 +3424,27 @@ public final class Settings {
          */
         public static final String EGG_MODE = "egg_mode";
 
-        /**  
-         * AOKP Custom System Animations
+        /**
+         * Whether to hide the clock, show it in the right or left
+         * position or show it in the center
+         * 0: don't show the clock
+         * 1: show the clock in the right position (LTR)
+         * 2: show the clock in the center
+         * 3: show the clock in the left position (LTR)
+         * default: 1
          * @hide
-         */  
-        public static final String[] ACTIVITY_ANIMATION_CONTROLS = new String[] {  
-                "activity_open",
-                "activity_close",
-                "task_open",  
-                "task_close",  
-                "task_to_front",
-                "task_to_back",  
-                "wallpaper_open",  
-                "wallpaper_close",  
-                "wallpaper_intra_open",  
-                "wallpaper_intra_close",  
-        };  
-        public static final String ANIMATION_CONTROLS_DURATION = "animation_controls_duration";
+         */
+        public static final String STATUS_BAR_CLOCK = "status_bar_clock";
+
+        /**
+         * Display style of AM/PM next to clock in status bar
+         * 0: Normal display (Eclair stock)
+         * 1: Small display (Froyo stock)
+         * 2: No display (Gingerbread/ICS stock)
+         * default: 2
+         * @hide
+         */
+        public static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
 
         /**
          * Show or hide clock
